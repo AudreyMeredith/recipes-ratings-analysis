@@ -36,6 +36,7 @@ The second dataset, `RAW_interactions.csv`, has **731,927** rows, representing u
 | **`rating`**       | Rating given |
 | **`review`**       | Review text |
 
+
 With these datasets, we aim to examine whether people rate high-carbohydrates and low-carbohydrates recipes differently. To support this analysis, we extracted individual nutrient values from the `nutrition` column into distinct categories such as `calories (#)`, `total fat (PDV)`, and `carbohydrates (PDV)`. The PDV, or percent daily value, represents the percentage a nutrient contributes to a typical daily diet. 
 
 Furthermore, we calculated the proportion of carbohydrates relative to the total calories in a recipe and stored this value in a new column, `prop_carbohydrates`. Recipes classified as high-carbohydrates are those with a `prop_carbohydrates` value exceeding the average `prop_carbohydrates` across all recipes.
@@ -107,6 +108,8 @@ Our cleaned DataFrame ended up having 234428 rows and 26 columns. Here are the f
 ### Univariate Analysis
 
 ### Bivariate Analysis
+
+We examined the distribution of the rating of the recipe conditioned on whether or not we classified it as being high in carbs. We used a bianizer from sklearn with a threshold of the mean of the "carbohydrate" column to create a new dataframe that classifies the recipe as being "True" if the "carbohydrate" amount associated with that recipe is above the threshold, and classifies the recipe as "False" if it is below the threshold. The graph below shows that the recipes with a rating of 4 and 5 are more likely to occur regardless if it is high in carbs or not. 
 
 ### Interesting Aggregates
 
